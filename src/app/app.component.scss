@@ -1,0 +1,30 @@
+.calculator{
+    padding: 10px 0px;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    
+    &__container{
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1 1 auto;
+    }
+    &__body{
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        // max-width: 320px;
+        flex: 1 1 auto;
+    }
+}
+.title{
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    font-size: 25px;
+    margin-bottom: 25px;
+}

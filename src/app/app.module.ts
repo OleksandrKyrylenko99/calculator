@@ -1,18 +1,31 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { MyCalculatorComponent } from './my-calculator/my-calculator.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { DecimalPipe } from '@angular/common';
+import { CommonModule } from '@angular/common';
+
+// import { DecimalPipe } from "@angular/common";
+
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [],
   imports: [
+    AppComponent,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule,
+    FormsModule,
+    MyCalculatorComponent,
+    CommonModule 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [DecimalPipe],
+  bootstrap: [],
+  
 })
 export class AppModule { }
+
+
+

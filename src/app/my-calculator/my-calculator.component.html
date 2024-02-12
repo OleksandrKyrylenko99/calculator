@@ -1,0 +1,45 @@
+<div class="calculator__items">
+    <div class="calculator__block">
+        <div class="calculator__screen">
+            @if(this.historyOfComputing.length > 0){
+            <div class="calculator__history history"> 
+                <ul class="history__list-of-computing computing">
+                    @for(computing of historyOfComputing; track computing; ){
+                        <li class="computing__item">
+                            <span>{{computing.firstNumber}}</span>
+                            <span>{{computing.operation}}</span>
+                            <span>{{computing.secondNumber}}</span> 
+                            <span>=</span>
+                            <span>{{computing.resultOfComputing}}</span>
+                        </li>
+                    }
+                </ul>
+            </div>
+            }
+            <input [ngModel]="!this.isError() ? calcValue() : calcError()" readonly />
+        </div>
+        <div class="calculator__buttons buttons">
+            <div class="buttons__column buttons__column--exception">
+                <div class="buttons__item">
+                    <button (click)="clearAttributeCalculator()" type="button" class="btn ac bg-grey">AC</button>
+                    <button (click)="onClickOperation('switchNumberSign')" type="button" class="btn plus-minus bg-grey"><span class="plus">+</span>/<span class="minus">-</span></button>
+                    <button (click)="onClickOperation('onClickPercentage')" type="button" class="btn percent bg-grey">%</button>
+                </div>
+                <div class="buttons__item">
+                    @for(numbersArea of arrayCalculatorNumbers; track numbersArea;){
+                        @for (number of numbersArea; track number){
+                            <button (click)="handleButtonClick(number)" type="button" class="btn">{{number}}</button>
+                        }
+                    }
+                    <button (click)="handleButtonClick('0')" type="button" class="btn zero">0</button>
+                    <button [disabled]="isButtonDisabled('.')" (click)="handleButtonClick('.')" type="button" class="btn dot">.</button>
+                </div>
+            </div>
+            <div class="buttons__column">
+                @for(mathAction of mathActions; track mathAction;){
+                    <button (click)="handleMathActionClick(mathAction)" type="button" data-type="actions" class="btn bg-orange">{{mathAction.value}}</button>
+                }
+            </div>
+        </div>
+    </div>
+</div>
